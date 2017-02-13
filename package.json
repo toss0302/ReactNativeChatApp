@@ -13,8 +13,19 @@
     "react-native-router-flux": "^3.37.0"
   },
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-cooperka": "^0.2.4",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-react-native": "^2.2.1",
+    "eslint-plugin-standard": "^2.0.1",
     "jest": "18.1.0",
     "react-test-renderer": "15.4.2"
   },

@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+
+  "extends": [
+    "cooperka/react-native",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+
+  "rules": {
+  }
+}

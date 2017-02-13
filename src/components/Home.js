@@ -11,10 +11,34 @@ import {
   Actions,
 } from 'react-native-router-flux';
 
+const $coolBlack = 'black';
+const styles = StyleSheet.create({
+  title: {
+    marginTop: 20,
+    marginLeft: 20,
+    fontSize: 20,
+  },
+  nameInput: {
+    padding: 5,
+    height: 40,
+    borderWidth: 2,
+    borderColor: $coolBlack,
+    margin: 20,
+  },
+  buttonText: {
+    marginLeft: 20,
+    fontSize: 20,
+  },
+});
+
 export default class Home extends React.Component {
-  state = {
-    name: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
+  }
+
   render() {
     return (
       <View>
@@ -38,32 +62,14 @@ export default class Home extends React.Component {
             Actions.chat({
               name: this.state.name,
             });
-          }}
+          }
+        }
         >
           <Text style={styles.buttonText}>
             Next
           </Text>
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
-
-var styles = StyleSheet.create({
-  title: {
-    marginTop: 20,
-    marginLeft: 20,
-    fontSize: 20,
-  },
-  nameInput: {
-    padding: 5,
-    height: 40,
-    borderWidth: 2,
-    borderColor: 'black',
-    margin: 20,
-  },
-  buttonText: {
-    marginLeft: 20,
-    fontSize: 20,
-  }
-})
