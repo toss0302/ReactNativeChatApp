@@ -11,6 +11,12 @@ import {
   Actions,
 } from 'react-native-router-flux';
 
+import {
+  GiftedChat,
+  Actions,
+  Bubble,
+} from '../core/GiftedChat';
+
 const $coolBlack = 'black';
 const styles = StyleSheet.create({
   title: {
