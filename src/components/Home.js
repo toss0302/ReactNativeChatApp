@@ -11,12 +11,6 @@ import {
   Actions,
 } from 'react-native-router-flux';
 
-import {
-  GiftedChat,
-  Actions,
-  Bubble,
-} from '../core/GiftedChat';
-
 const $coolBlack = 'black';
 const styles = StyleSheet.create({
   title: {
@@ -53,7 +47,7 @@ export default class Home extends React.Component {
         </Text>
         <TextInput
           style={styles.nameInput}
-          placeholder="John Snow"
+          placeholder="your name"
           onChangeText={(text) => {
             this.setState({
               name: text,

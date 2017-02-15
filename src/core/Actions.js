@@ -63,6 +63,9 @@ export default class Actions extends React.Component {
   }
 }
 
+const colorWrapperBorderColor = '#b2b2b2';
+const colorTransparent = 'transparent';
+
 const styles = StyleSheet.create({
   container: {
     width: 26,
@@ -72,15 +75,15 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     borderRadius: 13,
-    borderColor: '#b2b2b2',
+    borderColor: colorWrapperBorderColor,
     borderWidth: 2,
     flex: 1,
   },
   iconText: {
-    color: '#b2b2b2',
+    color: colorWrapperBorderColor,
     fontWeight: 'bold',
     fontSize: 16,
-    backgroundColor: 'transparent',
+    backgroundColor: colorTransparent,
     textAlign: 'center',
   },
 });
@@ -96,6 +99,7 @@ Actions.defaultProps = {
   icon: null,
   containerStyle: {},
   iconTextStyle: {},
+  wrapperStyle: {},
 };
 
 Actions.propTypes = {
@@ -106,4 +110,5 @@ Actions.propTypes = {
   onPressActionButton: React.PropTypes.func,
   containerStyle: View.propTypes.style,
   iconTextStyle: Text.propTypes.style,
+  wrapperStyle: Text.propTypes.style,
 };

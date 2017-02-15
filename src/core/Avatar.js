@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   StyleSheet,
   View,
 } from 'react-native';
@@ -66,6 +65,7 @@ const styles = {
 
 Avatar.defaultProps = {
   position: 'left',
+  renderAvatar: null,
   currentMessage: {
     user: null,
   },
@@ -79,6 +79,7 @@ Avatar.defaultProps = {
 
 Avatar.propTypes = {
   position: React.PropTypes.oneOf(['left', 'right']),
+  renderAvatar: React.PropTypes.object,
   currentMessage: React.PropTypes.object,
   nextMessage: React.PropTypes.object,
   containerStyle: React.PropTypes.shape({

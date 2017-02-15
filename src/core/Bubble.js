@@ -19,6 +19,31 @@ export default class Bubble extends React.Component {
     this.onLongPress = this.onLongPress.bind(this);
   }
 
+  onLongPress() {
+    if (this.props.onLongPress) {
+      this.props.onLongPress(this.context);
+    } else {
+      if (this.props.currentMessage.text) {
+        const options = [
+          'Copy Text',
+          'Cancel',
+        ];
+        const cancelButtonIndex = options.length - 1;
+        this.context.actionSheet().showActionSheetWithOptions({
+          options,
+          cancelButtonIndex,
+        },
+        (buttonIndex) => {
+          switch (buttonIndex) {
+            case 0:
+              Clipboard.setString(this.props.currentMessage.text);
+              break;
+          }
+        });
+      }
+    }
+  }
+
   handleBubbleToNext() {
     if (isSameUser(this.props.currentMessage, this.props.nextMessage) && isSameDay(this.props.currentMessage, this.props.nextMessage)) {
       return StyleSheet.flatten([styles[this.props.position].containerToNext, this.props.containerToNextStyle[this.props.position]]);
@@ -39,7 +64,7 @@ export default class Bubble extends React.Component {
       if (this.props.renderMessageText) {
         return this.props.renderMessageText(messageTextProps);
       }
-      return <MessageText {...messageTextProps}/>;
+      return <MessageText {...messageTextProps} />;
     }
     return null;
   }
@@ -50,7 +75,7 @@ export default class Bubble extends React.Component {
       if (this.props.renderMessageImage) {
         return this.props.renderMessageImage(messageImageProps);
       }
-      return <MessageImage {...messageImageProps}/>;
+      return <MessageImage {...messageImageProps} />;
     }
     return null;
   }
@@ -79,7 +104,7 @@ export default class Bubble extends React.Component {
       if (this.props.renderTime) {
         return this.props.renderTime(timeProps);
       }
-      return <Time {...timeProps}/>;
+      return <Time {...timeProps} />;
     }
     return null;
   }
@@ -89,31 +114,6 @@ export default class Bubble extends React.Component {
       return this.props.renderCustomView(this.props);
     }
     return null;
-  }
-
-  onLongPress() {
-    if (this.props.onLongPress) {
-      this.props.onLongPress(this.context);
-    } else {
-      if (this.props.currentMessage.text) {
-        const options = [
-          'Copy Text',
-          'Cancel',
-        ];
-        const cancelButtonIndex = options.length - 1;
-        this.context.actionSheet().showActionSheetWithOptions({
-          options,
-          cancelButtonIndex,
-        },
-        (buttonIndex) => {
-          switch (buttonIndex) {
-            case 0:
-              Clipboard.setString(this.props.currentMessage.text);
-              break;
-          }
-        });
-      }
-    }
   }
 
   render() {
@@ -205,6 +205,7 @@ Bubble.defaultProps = {
   renderMessageImage: null,
   renderMessageText: null,
   renderCustomView: null,
+  renderTicks: null,
   renderTime: null,
   position: 'left',
   currentMessage: {
@@ -230,6 +231,7 @@ Bubble.propTypes = {
   renderMessageImage: React.PropTypes.func,
   renderMessageText: React.PropTypes.func,
   renderCustomView: React.PropTypes.func,
+  renderTicks: React.PropTypes.func,
   renderTime: React.PropTypes.func,
   position: React.PropTypes.oneOf(['left', 'right']),
   currentMessage: React.PropTypes.object,

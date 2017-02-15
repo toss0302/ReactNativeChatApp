@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Platform
+  Platform,
+  StyleSheet,
 } from 'react-native';
 import {
   Router,
@@ -13,7 +14,7 @@ import Chat from './components/Chat';
 const styles = StyleSheet.create({
   scene: {
     paddingTop: Platform.OS === 'ios' ? 64 : 54,
-    marginLeft: 20,
+    marginLeft: 0,
   },
 });
 
